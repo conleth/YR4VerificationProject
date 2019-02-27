@@ -444,7 +444,7 @@ public class KennedyConlethTestTask3 {
 		r.add(b);
 		
 		CarParkKind kind= CarParkKind.MANAGEMENT ;
-		BigDecimal normal = new BigDecimal(0.5),reduced = new BigDecimal(1);
+		BigDecimal normal = new BigDecimal(1),reduced = new BigDecimal(0.5);
 		
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		
