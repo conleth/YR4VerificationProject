@@ -435,6 +435,38 @@ public class KennedyConlethTestTask3 {
 		assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,new BigDecimal(15));
 	}
 	@Test
+	public void visitorReductionFree() {
+		Period a,b ;
+		b = new Period(0,1) ;
+		a = new Period(2,3) ;
+		ArrayList<Period> n = new ArrayList<Period>() ,r = new ArrayList<Period>();
+		n.add(a); 
+		r.add(b);
+		
+		CarParkKind kind= CarParkKind.VISITOR ;
+		BigDecimal normal = new BigDecimal(2),reduced = new BigDecimal(1);
+		
+		Rate testValue = new Rate(kind,normal,reduced,r,n);
+		
+		assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,new BigDecimal(0));
+	}
+	@Test
+	public void visitorReductionExactlyEight() {
+		Period a,b ;
+		b = new Period(0,1) ;
+		a = new Period(2,3) ;
+		ArrayList<Period> n = new ArrayList<Period>() ,r = new ArrayList<Period>();
+		n.add(a); 
+		r.add(b);
+		
+		CarParkKind kind= CarParkKind.VISITOR ;
+		BigDecimal normal = new BigDecimal(7),reduced = new BigDecimal(1);
+		
+		Rate testValue = new Rate(kind,normal,reduced,r,n);
+		
+		assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,new BigDecimal(8));
+	}
+	@Test
 	public void managementMinPayment() {
 		Period a,b ;
 		b = new Period(0,1) ;
@@ -465,6 +497,22 @@ public class KennedyConlethTestTask3 {
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		
 		assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,new BigDecimal(28.875));
+	}
+	@Test
+	public void studentReductionExactlyFiveFifthy() {
+		Period a,b ;
+		b = new Period(0,1) ;
+		a = new Period(2,3) ;
+		ArrayList<Period> n = new ArrayList<Period>() ,r = new ArrayList<Period>();
+		n.add(a); 
+		r.add(b);
+		
+		CarParkKind kind= CarParkKind.STUDENT ;
+		BigDecimal normal = new BigDecimal(3),reduced = new BigDecimal(1.5);
+		
+		Rate testValue = new Rate(kind,normal,reduced,r,n);
+		
+		assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,new BigDecimal(4.50));
 	}
 	@Test
 	public void staffMaximum() {
