@@ -23,7 +23,7 @@ public class KennedyConlethTestTask3 {
 		
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		
-		assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,new BigDecimal(38));
+		assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,new BigDecimal(38));
 	}
 	@Test
 	public void reducedRateDecmialTest() {
@@ -39,7 +39,7 @@ public class KennedyConlethTestTask3 {
 		
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		
-		assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)).ROUND_DOWN ,new BigDecimal(16.6).ROUND_DOWN);
+		assertEquals(testValue.calculate(a).add(testValue.calculate(b)).ROUND_DOWN ,new BigDecimal(16.6).ROUND_DOWN);
 	}
 	/*@Test
 	public void normalRateDecmialTest() {
@@ -55,7 +55,7 @@ public class KennedyConlethTestTask3 {
 		
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		
-		assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,18.6);
+		assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,18.6);
 	}*/
 	@Test
 	public void reducedRateNegativeDecmialTest() {
@@ -76,7 +76,7 @@ public class KennedyConlethTestTask3 {
 			
 		}
 		
-		//assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) , new IllegalArgumentException() );
+		//assertEquals(testValue.calculate(a).add(testValue.calculate(b)) , new IllegalArgumentException() );
 	}
 	@Test
 	public void normalRateNegativeDecmialTest() {
@@ -95,7 +95,7 @@ public class KennedyConlethTestTask3 {
 		catch(IllegalArgumentException e) {
 			
 		}
-		//assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,new IllegalArgumentException());
+		//assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,new IllegalArgumentException());
 	}
 /*	@Test
 	public void doubleZeroTest() {
@@ -111,7 +111,7 @@ public class KennedyConlethTestTask3 {
 		
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		
-		assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,0);
+		assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,0);
 	}*/
 	@Test
 	public void postiveNormalZeroReducedTest() {
@@ -127,7 +127,7 @@ public class KennedyConlethTestTask3 {
 		
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		
-		assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,new BigDecimal(16));
+		assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,new BigDecimal(16));
 	}
 	/*@Test
 	public void zeroNormalPostiveReducedTest() {
@@ -143,7 +143,7 @@ public class KennedyConlethTestTask3 {
 		
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		
-		assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,18);
+		assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,18);
 	}*/
 	@Test
 	public void reducedRateNegativeTest() {
@@ -163,7 +163,7 @@ public class KennedyConlethTestTask3 {
 		catch(IllegalArgumentException e) {
 			
 		}
-		//assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) , new IllegalArgumentException() );
+		//assertEquals(testValue.calculate(a).add(testValue.calculate(b)) , new IllegalArgumentException() );
 	}
 	@Test
 	public void normalRateNegativeTest() {
@@ -183,7 +183,7 @@ public class KennedyConlethTestTask3 {
 		catch(IllegalArgumentException e) {
 			
 		}
-		//assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,new IllegalArgumentException());
+		//assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,new IllegalArgumentException());
 	}
 	@Test
 	public void wholeNormalRateDecmialReducedTest() {
@@ -199,7 +199,7 @@ public class KennedyConlethTestTask3 {
 		
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		
-		assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,ex);
+		assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,ex);
 	}
 	@Test
 	public void decmialNormalRateWholeReducedTest() {
@@ -215,7 +215,7 @@ public class KennedyConlethTestTask3 {
 		
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		
-		assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)).ROUND_DOWN , new BigDecimal(49.2).ROUND_DOWN);
+		assertEquals(testValue.calculate(a).add(testValue.calculate(b)).ROUND_DOWN , new BigDecimal(49.2).ROUND_DOWN);
 	}
 	@Test
 	public void overlapReducedRateTest() {
@@ -233,7 +233,7 @@ public class KennedyConlethTestTask3 {
 			
 		}
 		
-		//assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,new IllegalArgumentException());
+		//assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,new IllegalArgumentException());
 	}
 	@Test
 	public void overlapNormalRateTest() {
@@ -250,7 +250,7 @@ public class KennedyConlethTestTask3 {
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		}
 		catch(IllegalArgumentException e) {
-		//assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,new IllegalArgumentException());
+		//assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,new IllegalArgumentException());
 		}
 	}
 	@Test
@@ -267,7 +267,7 @@ public class KennedyConlethTestTask3 {
 		
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		
-		assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,new IllegalArgumentException());
+		assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,new IllegalArgumentException());
 	}
 	@Test
 	public void nullNormalPeriodsTest() {
@@ -286,7 +286,7 @@ public class KennedyConlethTestTask3 {
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		}
 		catch(IllegalArgumentException e) {
-		//assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,new IllegalArgumentException());
+		//assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,new IllegalArgumentException());
 		}
 	}
 	@Test
@@ -305,7 +305,7 @@ public class KennedyConlethTestTask3 {
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		//}
 		//catch(IllegalArgumentException e) {
-		assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,new IllegalArgumentException());
+		assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,new IllegalArgumentException());
 		//}
 	}
 	@Test
@@ -323,7 +323,7 @@ public class KennedyConlethTestTask3 {
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		}
 		catch(IllegalArgumentException e) {
-			//assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,new IllegalArgumentException());
+			//assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,new IllegalArgumentException());
 		}
 	}
 	@Test
@@ -343,7 +343,7 @@ public class KennedyConlethTestTask3 {
 		}
 		catch(IllegalArgumentException e){
 			//pass();
-			//assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,new IllegalArgumentException());
+			//assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,new IllegalArgumentException());
 		}
 	}
 	@Test
@@ -360,7 +360,7 @@ public class KennedyConlethTestTask3 {
 		
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		
-		assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,new BigDecimal(8));
+		assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,new BigDecimal(8));
 	}
 	@Test
 	public void extraPeriods() {
@@ -386,7 +386,7 @@ public class KennedyConlethTestTask3 {
 		
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		
-		assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,new BigDecimal(14));
+		assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,new BigDecimal(14));
 	}
 	@Test
 	public void overlapMutiplePeriods() {
@@ -416,7 +416,7 @@ public class KennedyConlethTestTask3 {
 		catch(IllegalArgumentException ex) {
 			
 		}
-		//assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,new BigDecimal(14));
+		//assertEquals(testValue.calculate(a).add(testValue.calculate(b)) ,new BigDecimal(14));
 	}
 	@Test
 	public void visitorReduction() {

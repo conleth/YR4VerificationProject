@@ -91,6 +91,13 @@ public class Rate {
         }
         return isValid;
     }
+    public BigDecimal calculate(Period periodStay) {
+        int normalRateHours = periodStay.occurences(normal);
+        int reducedRateHours = periodStay.occurences(reduced);
+        return (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+                this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
+        
+    }
     public BigDecimal calculate(Period periodStay, CarParkKind type) {
         int normalRateHours = periodStay.occurences(normal);
         int reducedRateHours = periodStay.occurences(reduced);
