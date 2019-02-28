@@ -101,17 +101,58 @@ public class Rate {
     public BigDecimal calculate(Period periodStay, CarParkKind type) {
         int normalRateHours = periodStay.occurences(normal);
         int reducedRateHours = periodStay.occurences(reduced);
+        
         if(type.name()== "VISITOR") {
-        	
+        	double value = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+                    this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours))).doubleValue();
+        	if(value > 8.0) {
+        		value = value-8 ;
+        		value = value/2 ;
+        		value = value + 8 ;
+        		return new BigDecimal(value);
+        	}
+        	else {
+        		return new BigDecimal(0);
+        	}
         }
-        else if(type.name()== "MANAGEMENT") {
-        	return new BigDecimal(0);
+        else if(type.name()== "MANAGEMENT" ) {
+        	double value = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+                    this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours))).doubleValue();
+        	if(value <= 3.00) {
+        		return new BigDecimal(3) ;
+        	}
+        	else {
+                return (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+                        this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
+        	}
         }
         else if(type.name()== "STAFF") {
-        	return new BigDecimal(0);
+        	double value = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+                    this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours))).doubleValue();
+        	if(value < 16.00) {
+        		return (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+                        this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
+        	}
+        	else {
+        		return new BigDecimal(16) ;
+        	}
         }
         else if(type.name()== "STUDENT") {
-        	return new BigDecimal(0);
+        	double value = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+                    this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours))).doubleValue();
+        	if(value >= 5.50) {
+                return (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+                        this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
+        	}
+        	else {
+        		double temp ;
+        		value = value - 5.50;
+        		temp = (value / 4) ;
+        		value = value - temp ;
+        		value += 5.50 ;
+        		return new BigDecimal(value) ;
+        	}
+        	
         }
         return (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
                 this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
