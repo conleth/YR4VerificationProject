@@ -432,7 +432,7 @@ public class KennedyConlethTestTask3 {
 		
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		
-		assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,new BigDecimal(15));
+		assertEquals(testValue.calculate(a,b,kind) ,new BigDecimal(15));
 	}
 	@Test
 	public void visitorReductionFree() {
@@ -448,7 +448,7 @@ public class KennedyConlethTestTask3 {
 		
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		
-		assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,new BigDecimal(0));
+		assertEquals(testValue.calculate(a,b,kind) ,new BigDecimal(0));
 	}
 	@Test
 	public void visitorReductionExactlyEight() {
@@ -464,7 +464,7 @@ public class KennedyConlethTestTask3 {
 		
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		
-		assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,new BigDecimal(8));
+		assertEquals(testValue.calculate(a,b,kind) ,new BigDecimal(8));
 	}
 	@Test
 	public void managementMinPayment() {
@@ -480,7 +480,7 @@ public class KennedyConlethTestTask3 {
 		
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		
-		assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,new BigDecimal(3));
+		assertEquals(testValue.calculate(a,b,kind) ,new BigDecimal(3));
 	}
 	@Test
 	public void studentReduction() {
@@ -496,7 +496,7 @@ public class KennedyConlethTestTask3 {
 		
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		
-		assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,new BigDecimal(28.875));
+		assertEquals(testValue.calculate(a,b,kind) ,new BigDecimal(28.875));
 	}
 	@Test
 	public void studentReductionExactlyFiveFifthy() {
@@ -512,7 +512,7 @@ public class KennedyConlethTestTask3 {
 		
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		
-		assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,new BigDecimal(4.50));
+		assertEquals(testValue.calculate(a,b,kind) ,new BigDecimal(4.50));
 	}
 	@Test
 	public void staffMaximum() {
@@ -528,6 +528,6 @@ public class KennedyConlethTestTask3 {
 		
 		Rate testValue = new Rate(kind,normal,reduced,r,n);
 		
-		assertEquals(testValue.calculate(a,kind).add(testValue.calculate(b,kind)) ,new BigDecimal(16));
+		assertEquals(testValue.calculate(a,b,kind) ,new BigDecimal(16));
 	}
 }

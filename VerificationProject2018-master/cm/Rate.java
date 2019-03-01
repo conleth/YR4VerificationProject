@@ -98,9 +98,9 @@ public class Rate {
                 this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
         
     }
-    public BigDecimal calculate(Period periodStay, CarParkKind type) {
-        int normalRateHours = periodStay.occurences(normal);
-        int reducedRateHours = periodStay.occurences(reduced);
+    public BigDecimal calculate(Period normalPeriod, Period reducedPeriod,CarParkKind type) {
+        int normalRateHours = normalPeriod.occurences(normal);
+        int reducedRateHours = reducedPeriod.occurences(reduced);
         
         if(type.name()== "VISITOR") {
         	double value = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
