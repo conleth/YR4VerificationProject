@@ -91,13 +91,13 @@ public class Rate {
         }
         return isValid;
     }
-    public BigDecimal calculate(Period periodStay) {
+    /*public BigDecimal calculate(Period periodStay) {
         int normalRateHours = periodStay.occurences(normal);
         int reducedRateHours = periodStay.occurences(reduced);
         return (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
                 this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
         
-    }
+    }*/
     public BigDecimal calculate(Period normalPeriod, Period reducedPeriod,CarParkKind type) {
         int normalRateHours = normalPeriod.occurences(normal);
         int reducedRateHours = reducedPeriod.occurences(reduced);
@@ -110,6 +110,9 @@ public class Rate {
         		value = value/2 ;
         		value = value + 8 ;
         		return new BigDecimal(value);
+        	}
+        	else if(value == 8.0) {
+        		return new BigDecimal(8);
         	}
         	else {
         		return new BigDecimal(0);
@@ -140,7 +143,7 @@ public class Rate {
         else if(type.name()== "STUDENT") {
         	double value = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
                     this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours))).doubleValue();
-        	if(value >= 5.50) {
+        	if(value <= 5.50) {
                 return (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
                         this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
         	}
